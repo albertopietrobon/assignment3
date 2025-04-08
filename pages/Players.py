@@ -1,5 +1,8 @@
+
 import streamlit as st
 import pandas as pd
+import plotly.express as px
+
 
 data={
     "players": ['Thuram', 'Lookman', 'Martinez', 'Paz', 'Calhanoglu'],
@@ -14,4 +17,7 @@ df=pd.DataFrame(data)
 
 st.title(":red[Player stats]")
 
-st.selectbox("Select a player:",df["players"])
+choice = st.selectbox("Select a player:",df["players"])
+if choice:
+    fig = px.line_polar(df)
+    st.plotly_chart(fig)
