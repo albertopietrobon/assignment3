@@ -18,6 +18,9 @@ df=pd.DataFrame(data)
 st.title(":red[Player stats]")
 
 choice = st.selectbox("Select a player:",df["players"])
-if choice:
-    fig = px.line_polar(df)
-    st.plotly_chart(fig)
+stats=df.query('players==@choice').copy()
+#st.dataframe(stats)
+fig = px.line_polar(stats,r=stats.iloc[0,1:],theta=stats.columns[1:],
+                    line_close=True, markers=True,range_r=(0,100), template="plotly_dark")
+st.plotly_chart(fig)
+

@@ -1,15 +1,13 @@
 import streamlit as st
 
-
 st.set_page_config(
     page_title= "Serie A",
-    layout= "wide",
+    layout= "centered",
     initial_sidebar_state= "collapsed"
 )
 
 import pandas as pd
 import numpy as np
-
 
 #Dataset
 
